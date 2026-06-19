@@ -1,4 +1,4 @@
-# AI Shopping Assistant (`shopping-assistant`)
+# AI Shopping Assistant
 
 ![Shopping Assistant Dashboard](screenshot-01.png)
 
