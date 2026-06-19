@@ -30,9 +30,9 @@ shopping-assistant/
 
 The project enforces strict secure-by-default paradigms to avoid common vulnerability classes (OWASP Top 10 for LLMs):
 
-1. **Tool Input Validation**: Parameter checks use Pydantic models (configured in [app/agent.py](file:///C:/Users/ericj/source/agy2-projects/secure-agent-lab/shopping-assistant/app/agent.py)) to prevent type-injection and out-of-bound errors.
-2. **Deterministic Security Hook (PreToolUse)**: Configured in [.agents/hooks.json](file:///C:/Users/ericj/source/agy2-projects/secure-agent-lab/shopping-assistant/.agents/hooks.json) to intercept command executions and validate parameter schemas under a strict 10-second timeout before execution.
-3. **Secret Prevention**: Staged files are checked by Semgrep on every commit (defined in [.semgrep/rules.yaml](file:///C:/Users/ericj/source/agy2-projects/secure-agent-lab/shopping-assistant/.semgrep/rules.yaml)) to prevent any hardcoded API key leaks (regex: `AIzaSy[A-Za-z0-9_\-]*`).
+1. **Tool Input Validation**: Parameter checks use Pydantic models (configured in [app/agent.py](shopping-assistant/app/agent.py)) to prevent type-injection and out-of-bound errors.
+2. **Deterministic Security Hook (PreToolUse)**: Configured in [.agents/hooks.json](shopping-assistant/.agents/hooks.json) to intercept command executions and validate parameter schemas under a strict 10-second timeout before execution.
+3. **Secret Prevention**: Staged files are checked by Semgrep on every commit (defined in [.semgrep/rules.yaml](shopping-assistant/.semgrep/rules.yaml)) to prevent any hardcoded API key leaks (regex: `AIzaSy[A-Za-z0-9_\-]*`).
 4. **Pre-Commit Remediation Loop**: If any pre-commit hook checks fail, the agent automatically kicks off the remediation cycle (refactor, test, stage, recommit).
 
 ---
@@ -70,6 +70,6 @@ Once started, open the dev UI at: **[http://127.0.0.1:8080/dev-ui/?app=app](http
 
 ## 🛡️ Stride Threat Model Status
 
-A full STRIDE security assessment is compiled in [threat_model.md](file:///C:/Users/ericj/source/agy2-projects/secure-agent-lab/shopping-assistant/threat_model.md). Key findings addressed:
+A full STRIDE security assessment is compiled in [threat_model.md](shopping-assistant/threat_model.md). Key findings addressed:
 * **Information Disclosure**: Hardcoded API keys are completely removed. Model instantiation is securely backed by the environment variable `GEMINI_API_KEY`.
 * **Spoofing**: Enforced registered user ID checks on discount redemptions (`user_123`, `user_456`, `user_789`).
