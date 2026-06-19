@@ -1,5 +1,7 @@
 # AI Shopping Assistant (`shopping-assistant`)
 
+![Shopping Assistant Dashboard](screenshot-01.png)
+
 A secure, production-ready AI shopping assistant agent designed to run on the ADK 2.0 platform. It helps customers with product info, shopping queries, and securely handles single-use coupon redemptions.
 
 ---
